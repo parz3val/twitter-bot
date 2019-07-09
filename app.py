@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
 import time
 import datetime as dt
 
@@ -68,6 +69,10 @@ class TwitterBot():
                 except Exception as ex:
                     time.sleep(30)
                     self.logger(ex)
+    
+    def close_browser(self):
+        bot = self.bot
+        bot.close()
             
     
 botter = TwitterBot('youremail@gmail.com','password')
