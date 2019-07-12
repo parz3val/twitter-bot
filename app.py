@@ -98,10 +98,15 @@ class TwitterBot():
                     time.sleep(30)
                     self.logger(ex)
     
+    #closes browser
     def close_browser(self):
         bot = self.bot
         bot.close()
-            
+        
+    #automatically close browser on program exit
+    
+     def __exit__(self,exc_type,exc_value,traceback):
+            self.close_browser()
     
 botter = TwitterBot('#','#')
 botter.signin()
